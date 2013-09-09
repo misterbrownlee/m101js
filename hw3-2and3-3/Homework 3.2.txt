@@ -1,0 +1,51 @@
+Homework 3.2
+
+
+Making your blog accept posts
+In this homework you will be enhancing the blog project to insert entries into the posts collection. After this, the blog will have the basic functionality. It will allow you to add blog posts with a title, body and tags and have it be added to the posts collection properly.
+
+We have provided the code that creates users and allows you to login (the assignment from last week). Files for this homework and HW 3.3 should be included with your homework handout.
+
+We have removed parts of the code that uses the Node.js driver to query MongoDB from posts.js and marked the area where you need to work for hw3.2 with "hw3.2 TODO".
+
+In a terminal: 
+
+Linux/Mac:
+cd blog/ 
+grep -rn "hw3.2 TODO" *
+Windows:
+cd blog/ 
+find /n "hw3.2 TODO" *
+You should not need to touch any other code. The database call that you are going to add will insert a new post into the posts collection. Here is an example of valid blog post:
+
+> db.posts.find().pretty()
+{
+"_id" : ObjectId("513d396da0ee6e58987bae74"),
+"title" : "Martians to use MongoDB",
+"author" : "andrew",
+"body" : "Representatives from the planet Mars announced today that the planet would adopt MongoDB as a planetary standard. Head Martian Flipblip said that MongoDB was the perfect tool to store the diversity of life that exists on Mars.",
+"permalink" : "martians_to_use_mongodb",
+"tags" : [
+"martians",
+"seti",
+"nosql",
+"worlddomination"
+],
+"comments" : [ ],
+"date" : ISODate("2013-03-11T01:54:53.692Z")
+}
+As a reminder, to run your blog you type:
+npm install
+node app.js
+To play with the blog you can navigate to the following URLs:
+http://localhost:3000/
+http://localhost:3000/signup
+http://localhost:3000/login
+http://localhost:3000/newpost
+Ok, now it’s time to validate you got the code for hw3-2 working. You can validate the blog using the validation script we've provided in the 'validate' directory. Just run the following commands:
+cd validate
+npm install
+node hw3-2_validate.js
+For those who are using MongoHQ, MongoLab or want to run the webserver on a different host or port, there are some options to the validation script that can be exposed by running
+node hw3-2_validate.js --help
+If you got it right, it will provide a validation code for you to enter into the box below. Enter just the code, no spaces. Note that your blog must be running when you run the validator.
